@@ -106,7 +106,7 @@ But how does it compare to others?
 
 ---
 
-Let's go to [Diamond Hunter](https://www.shinyapps.io/admin/#/application/75469) web app and see...
+Let's go to [Diamond Hunt](https://axrt.shinyapps.io/DaimondHunt) web app and see...
 
 ---
 
