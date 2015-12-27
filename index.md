@@ -171,7 +171,8 @@ And don't hesitate to investigate. The diamond pricing *(as a function of diamon
 
 ---
 
-## Tanks for watching!
+## Tanks for watching!  
+*(Please proceed to the coding part!)*
 
 ---
 
