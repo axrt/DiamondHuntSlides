@@ -1,0 +1,4 @@
+revealjs:
+  theme: sky
+  transition: fade
+  center: "true"

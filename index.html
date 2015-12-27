@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/sky.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/sky.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h2>Ever searched for a </br> <strong>diamond ring</strong>?</h2>
+  
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h2>Actually... Forget the <em>ring</em> !</h2>
+  <p><em>(the setting I mean...)</em></p>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h2>Ever searched for a </br> <strong>diamond</strong>? 😃</h2>
+  
+</section>
+<section class='' data-state='' id='slide-4'>
+  
+  <p>If you have, you know how painful this process may be.<br>
+The main question is:<br>
+<strong>&quot;How does one choose a diamond<br>
+and<br>
+end up buying a good one?&quot;</strong></p>
+
+</section>
+<section class='' data-state='' id='slide-5'>
+  
+  <p>The usual <a href="https://en.wikipedia.org/wiki/Diamond">Wikipedia</a> trick does not help much.</p>
+
+</section>
+<section class='' data-state='' id='slide-6'>
+  
+  <p>Fortunately, there is a bunch of<br>
+<strong>really good information pages</strong><br>
+out there:  </p>
+
+<div class="extra">
+    <a href="https://www.diamonds.pro">
+        <img class="help_source" src="https://24zmsw8ynd-flywheel.netdna-ssl.com/wp-content/themes/diamondspro/img/logo-light.png"></img>
+    </a>
+</div>
+
+<div class="extra">
+    <a href="http://www.4cs.gia.edu/EN-US/index.htm">
+        <img class="help_source" src="http://www.benmadiamonds.com/Content/Media/GIA-LOGO.png"></img>
+    </a>
+</div>
+
+<div class="extra">
+    <a href="https://www.gemsociety.org/article/choosing-a-diamond/">
+        <img class="help_source"   src="https://gemsociety-littlebizzy.netdna-ssl.com/wp-content/uploads/2013/11/IGS_FinLogo_on_clear_marginright.png"></img>
+    </a>
+</div>
+
+</section>
+<section class='' data-state='' id='slide-7'>
+  
+  <p>However, these sources have limited information on the<br>
+<strong>PRICE</strong><br>
+for a given diamond with known 4C.  </p>
+
+</section>
+<section class='' data-state='' id='slide-8'>
+  
+  <p>Dozens of online stores allow to slice their databases to compare sets of diamonds and prices.  </p>
+
+</section>
+<section class='' data-state='' id='slide-9'>
+  
+  <p>Nevertheless, such a search should be implemented in a much more clean and simple way!</p>
+
+</section>
+<section class='' data-state='' id='slide-10'>
+  
+  <p>The data from <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a> might help through the<br>
+<a href="https://www.shinyapps.io/admin/#/application/75469">Diamond Hunter</a><br>
+web app.</p>
+
+</section>
+<section class='' data-state='' id='slide-11'>
+  
+  <p>Suppose we have chosen a diamond:</p>
+
+<div class="extra">
+<table class="comparison">
+    <tr>
+        <td>SHAPE</td>
+        <td>CARAT WEIGHT</td>
+        <td>COLOR</td>
+        <td>CLARITY</td>
+        <td>CUT</td>
+        <td>PRICE</td>
+    </tr>
+    <tr>
+        <td>ROUND</td>
+        <td>1.00</td>
+        <td>D</td>
+        <td>VVS2</td>
+        <td>VERY GOOD</td>
+        <td>$10,820</td>
+    </tr>
+</table>
+<p class="micro">data taken from jamesallen.com on 12.26.2015</p>
+</div>
+
+<p>Looks like an exceptional diamond!<br>
+But how does it compare to others?</p>
+
+</section>
+<section class='' data-state='' id='slide-12'>
+  
+  <p>Let&#39;s go to <a href="https://www.shinyapps.io/admin/#/application/75469">Diamond Hunter</a> web app and see...</p>
+
+</section>
+<section class='' data-state='' id='slide-13'>
+  
+  <p>Here we select the parameters in the leftmost panel..</p>
+
+<div class="extra">
+<img src="screen1.png"></img>
+</div>
+
+<p>Point to a diamond and see its specifications!<br>
+Apparently the closest one costs $10,800</p>
+
+</section>
+<section class='' data-state='' id='slide-14'>
+  
+  <p>We have 7 diamonds and ours is the most expensive.<br>
+Have we chosen the one that is a bit overpriced 😕?<br>
+But wait...</p>
+
+</section>
+<section class='' data-state='' id='slide-15'>
+  
+  <p>Recall that an excellent round diamond must have a<br>
+<strong>table between 58% and 60%</strong><br>
+and a<br>
+<strong>depth between 60% and 62%</strong>  </p>
+
+<div class="extra">
+<a href="http://smartcarat.com/diamond-smarts/diamond-depth-percentage/">
+<img src="http://smartcarat.com/wp-content/uploads/2011/01/Depth1.jpeg"></img>
+</a>
+</div>
+
+<p>which brings us to the research of these parameters!</p>
+
+</section>
+<section class='' data-state='' id='slide-16'>
+  
+  <p>The <strong>chosen diamond</strong><br>
+has a <strong>table of 59% and a depth 60.5%</strong>.<br>
+This one is truly excellent! Let&#39;s refine the search at the bottom of the parameters panel:</p>
+
+<div class="extra">
+<img src="screen2.png"></img>
+</div>
+
+<p>Aa-and we could not find a reference diamond to match 😅, which means the others&#39; fine parameters we slightly worse...</p>
+
+</section>
+<section class='' data-state='' id='slide-17'>
+  
+  <p><code>...</code>and the <strong>price bump for our diamond seems fair enough</strong>.</p>
+
+</section>
+<section class='' data-state='' id='slide-18'>
+  
+  <p>If you forget, there is a help drop-down on the app page. Just point to the help field!</p>
+
+<div class="extra">
+<img src="screen3.png"></img>
+</div>
+
+</section>
+<section class='' data-state='' id='slide-19'>
+  
+  <p>And don&#39;t hesitate to investigate. The diamond pricing <em>(as a function of diamonds&#39; parameters)</em> is a cool thing!</p>
+
+<div class="extra">
+<img src="diamond_plot.png"></img>
+</div>
+
+</section>
+<section class='' data-state='' id='slide-20'>
+  <h2>Tanks for watching!</h2>
+  
+</section>
+<section class='' data-state='' id='slide-21'>
+  
+  
+</section>
+    </div>
+  </div>
+</body>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'sky', 
+    transition: Reveal.getQueryHash().transition || 'fade', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
