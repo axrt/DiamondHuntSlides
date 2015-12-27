@@ -72,7 +72,7 @@ Nevertheless, such a search should be implemented in a much more clean and simpl
 ---
 
 The data from [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) might help through the  
-[Diamond Hunter](https://www.shinyapps.io/admin/#/application/75469)  
+[Diamond Hunt](https://axrt.shinyapps.io/DaimondHunt)  
 web app.
 
 ---
