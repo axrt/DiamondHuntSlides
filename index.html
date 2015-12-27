@@ -205,8 +205,93 @@ This one is truly excellent! Let&#39;s refine the search at the bottom of the pa
   
 </section>
 <section class='' data-state='' id='slide-21'>
+  <h2>Appendix</h2>
   
+</section>
+<section class='' data-state='' id='slide-22'>
   
+  <p>I yet have to demonstrate the ability to do R coding in slidify.<br>
+To do so I will briefly compare D and E colored diamonds. </p>
+
+</section>
+<section class='' data-state='' id='slide-23'>
+  
+  <p>So, they say that it is very VERY hard (if not impossible) to tell a D from an F with a naked eye. But does a price differ significantly?</p>
+
+</section>
+<section class='' data-state='' id='slide-24'>
+  
+  <pre><code class="r">library(&quot;ggplot2&quot;)
+data(&quot;diamonds&quot;)
+library(&quot;plyr&quot;)
+library(&quot;dplyr&quot;)
+</code></pre>
+
+<pre><code class="r">d.color&lt;- diamonds %&gt;% 
+        select(carat, cut, color, clarity, price) %&gt;% 
+        #-3 cuz the last ones are not relevant
+        filter(cut==&quot;Ideal&quot;, color==&quot;D&quot;, clarity==&quot;VVS1&quot;) 
+        #the IFs are rather rare
+nrow(d.color) #number of Ds
+</code></pre>
+
+<pre><code>## [1] 144
+</code></pre>
+
+<pre><code class="r">f.color&lt;- diamonds %&gt;% select(carat, cut, color, clarity, price) %&gt;%
+        filter(cut==&quot;Ideal&quot;, color==&quot;F&quot;, clarity==&quot;VVS1&quot;)
+</code></pre>
+
+<p>Here we have selected a group of D and F diamonds holding other important parameters equal.</p>
+
+</section>
+<section class='' data-state='' id='slide-25'>
+  
+  <pre><code class="r">nrow(f.color) #number of Es
+</code></pre>
+
+<pre><code>## [1] 440
+</code></pre>
+
+<pre><code class="r">wilcox.test(d.color$carat, f.color$carat)
+</code></pre>
+
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  d.color$carat and f.color$carat
+## W = 33891, p-value = 0.2077
+## alternative hypothesis: true location shift is not equal to 0
+</code></pre>
+
+<p>As we  see here , the mean weight is the same for the chosen groups (D and F). Let&#39;s see for the price.</p>
+
+</section>
+<section class='' data-state='' id='slide-26'>
+  
+  <pre><code class="r">wilcox.test(d.color$price, f.color$price)
+</code></pre>
+
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  d.color$price and f.color$price
+## W = 39747, p-value = 4.433e-06
+## alternative hypothesis: true location shift is not equal to 0
+</code></pre>
+
+<p>The difference in the price is quite significant.</p>
+
+</section>
+<section class='' data-state='' id='slide-27'>
+  
+  <p>Conclusion: it might be a good idea to buy an F instead of a D, especially if nobody can tell the difference without equipment.</p>
+
+</section>
+<section class='' data-state='' id='slide-28'>
+  
+  <p>Thanks!</p>
+
 </section>
     </div>
   </div>

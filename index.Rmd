@@ -174,3 +174,56 @@ And don't hesitate to investigate. The diamond pricing *(as a function of diamon
 ## Tanks for watching!
 
 ---
+
+## Appendix
+
+---
+
+I yet have to demonstrate the ability to do R coding in slidify.  
+To do so I will briefly compare D and E colored diamonds. 
+
+---
+
+So, they say that it is very VERY hard (if not impossible) to tell a D from an F with a naked eye. But does a price differ significantly?
+
+---
+```{r prep, warning=FALSE, results="hide", message=FALSE}
+library("ggplot2")
+data("diamonds")
+library("plyr")
+library("dplyr")
+```
+```{r main}
+d.color<- diamonds %>% 
+        select(carat, cut, color, clarity, price) %>% 
+        #-3 cuz the last ones are not relevant
+        filter(cut=="Ideal", color=="D", clarity=="VVS1") 
+        #the IFs are rather rare
+nrow(d.color) #number of Ds
+f.color<- diamonds %>% select(carat, cut, color, clarity, price) %>%
+        filter(cut=="Ideal", color=="F", clarity=="VVS1")
+```
+Here we have selected a group of D and F diamonds holding other important parameters equal.
+
+---
+
+```{r weight}
+nrow(f.color) #number of Es
+wilcox.test(d.color$carat, f.color$carat)
+```
+As we  see here , the mean weight is the same for the chosen groups (D and F). Let's see for the price.
+
+---
+
+```{r price}
+wilcox.test(d.color$price, f.color$price)
+```
+The difference in the price is quite significant.
+
+---
+
+Conclusion: it might be a good idea to buy an F instead of a D, especially if nobody can tell the difference without equipment.
+
+---
+
+Thanks!

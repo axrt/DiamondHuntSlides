@@ -174,3 +174,92 @@ And don't hesitate to investigate. The diamond pricing *(as a function of diamon
 ## Tanks for watching!
 
 ---
+
+## Appendix
+
+---
+
+I yet have to demonstrate the ability to do R coding in slidify.  
+To do so I will briefly compare D and E colored diamonds. 
+
+---
+
+So, they say that it is very VERY hard (if not impossible) to tell a D from an F with a naked eye. But does a price differ significantly?
+
+---
+
+```r
+library("ggplot2")
+data("diamonds")
+library("plyr")
+library("dplyr")
+```
+
+```r
+d.color<- diamonds %>% 
+        select(carat, cut, color, clarity, price) %>% 
+        #-3 cuz the last ones are not relevant
+        filter(cut=="Ideal", color=="D", clarity=="VVS1") 
+        #the IFs are rather rare
+nrow(d.color) #number of Ds
+```
+
+```
+## [1] 144
+```
+
+```r
+f.color<- diamonds %>% select(carat, cut, color, clarity, price) %>%
+        filter(cut=="Ideal", color=="F", clarity=="VVS1")
+```
+Here we have selected a group of D and F diamonds holding other important parameters equal.
+
+---
+
+
+```r
+nrow(f.color) #number of Es
+```
+
+```
+## [1] 440
+```
+
+```r
+wilcox.test(d.color$carat, f.color$carat)
+```
+
+```
+## 
+## 	Wilcoxon rank sum test with continuity correction
+## 
+## data:  d.color$carat and f.color$carat
+## W = 33891, p-value = 0.2077
+## alternative hypothesis: true location shift is not equal to 0
+```
+As we  see here , the mean weight is the same for the chosen groups (D and F). Let's see for the price.
+
+---
+
+
+```r
+wilcox.test(d.color$price, f.color$price)
+```
+
+```
+## 
+## 	Wilcoxon rank sum test with continuity correction
+## 
+## data:  d.color$price and f.color$price
+## W = 39747, p-value = 4.433e-06
+## alternative hypothesis: true location shift is not equal to 0
+```
+The difference in the price is quite significant.
+
+---
+
+Conclusion: it might be a good idea to buy an F instead of a D, especially if nobody can tell the difference without equipment.
+
+---
+
+Thanks!
